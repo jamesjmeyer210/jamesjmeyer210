@@ -1,6 +1,1 @@
-// placeholder
-
-/*
-window.screen.availHeight
-window.screen.availWidth
-*/
+console.log("Hello.");
