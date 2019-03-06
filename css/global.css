@@ -13,6 +13,18 @@ nav {
   font-variant: small-caps;
 }
 
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+ul li:before {
+  color: black;
+  content: '</> ';
+  font-size: 1em;
+  font-weight: bold;
+}
+
 /* CSS applied on ids */
 
 /* CSS applied on classes */
