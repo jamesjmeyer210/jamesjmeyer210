@@ -63,10 +63,14 @@
   console.assert(closeEmail !== null && closePhone !== null);
   // When the user clicks on the button, open the modal
   btnEmail.onclick = () => {
+    document.getElementById("modal-email-val")
+      .innerText = decrypt(contactInfo.email, 11);
     modalEmail.style.display = "block";
   }
   btnPhone.onclick = () => {
-    modalEmail.style.display = "block";
+    document.getElementById("modal-phone-val")
+      .innerText = decrypt(contactInfo.phone, 11);
+    modalPhone.style.display = "block";
   }
   // When the user clicks on <span> (x), close the modal
   closeEmail.onclick = () => {
