@@ -54,12 +54,28 @@ const contactInfo = {
 const idEmail = "#resume-contact-email";
 const idPhone = "#resume-contact-phone";
 
+const liToForm = (keyId, message) => {
+  let html = `<div>` +
+    `<form action="#" method="post">` +
+      `<label for="${keyId}">${message}</label>` +
+      `<input id="${keyId}" type=\"text\">` +
+      `<input id="${keyId}-submit" type=\"submit\" value=\"I am not a bot\">`
+    "</form></div>";
+  return html;
+}
+
 $(idEmail).on("click", (event) => {
   event.preventDefault();
-  $(idEmail).html(decrypt(contactInfo.email, 11));
+  $(idEmail).html(liToForm("email-key", "Please enter the number \"eleven\""));
+  $("#email-key-submit").on("click", (event) => {
+    event.preventDefault();
+    console.log(event);
+  });
+  //$(idEmail).html(decrypt(contactInfo.email, key));
 });
 
 $(idPhone).on("click", (event) => {
   event.preventDefault();
-  $(idPhone).html(decrypt(contactInfo.phone, 11));
+  let key = dialog("Enter the number \"eleven\"");
+  $(idPhone).html(decrypt(contactInfo.phone, key));
 });
