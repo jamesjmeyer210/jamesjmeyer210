@@ -47,7 +47,7 @@
   //  *   *   *   *   *   *   *   *
   const contactInfo = {
     email: "ulxp~uxp\u0084p}=<;Krxltw9nzx",
-    phone: "=<;9B?D9;D?B",
+    phone: "?AD8??=8BD>=",
   };
   // Get the modal
   const modalEmail = document.getElementById("modal-email");
