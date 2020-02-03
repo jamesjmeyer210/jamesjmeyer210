@@ -18,10 +18,11 @@
         <h2>Full Stack Software Engineer</h2>
         <h2>Performance Engineer</h2>
         <h2>Designer</h2>
-        <br>
     </header>
+    <br>
     <hr>
-    <nav id="main">
+    <br>
+    <nav id="nav" class="container">
         <div id="links" class="row text-center">
             <div class="column lg-col-33 md-col-33 sm-col-33">
                 <div id="resume-panel" class="nav-link-panel">
@@ -34,21 +35,74 @@
                 </div>
             </div>
             <div class="column lg-col-33 md-col-33 sm-col-33">
-                <div id="about-panel" class="nav-link-panel">
+                <div id="blog-panel" class="nav-link-panel">
                     <a class="nav-link">Blog</a>
                 </div>
             </div>
         </div>
     </nav>
     <main id="main">
-        <div id="resume"></div>
-        <div id="projects"></div>
-        <div id="blog"></div>
+        <div id="resume-page" class="hide"></div>
+        <div id="projects-page" class="hide"></div>
+        <div id="blog-page" class="hide"></div>
     </main>
     <!-- <script type="text/javascript" src="js/showdown.min.js"></script>
-    <script type="text/javascript" src="js/render-markdown.js"></script>
+    <script type="text/javascript" src="js/render-markdown.js"></script> -->
     <script>
-        renderMarkdown('main', 'index.md');
-    </script> -->
+        const nav = {
+            resume: document.getElementById('resume-panel'),
+            projects: document.getElementById('projects-panel'),
+            blog: document.getElementById('blog-panel'),
+        };
+
+        const page = {
+            resume: document.getElementById('resume-page'),
+            projects: document.getElementById('projects-page'),
+            blog: document.getElementById('blog-page'),
+        };
+        
+        const importData = (file, callback) => {
+            let req = new XMLHttpRequest();
+            req.open('GET', `${window.origin}/${file}`);
+            req.addEventListener('load', (event) => {
+                callback(event.originalTarget.responseText);
+            });
+            req.send();
+        };
+
+        const hideElement = (id) => { id.className = 'hide'; };
+
+        const unhideElement = (id) => { id.className = 'container'; };
+
+        importData('site/about.html', (response) => {
+            page.resume.innerHTML = response;
+        
+            nav.resume.onclick = () => {
+                hideElement(page.projects);
+                hideElement(page.blog);
+                unhideElement(page.resume);
+            };
+        });
+
+        importData('site/projects.html', (response) => {
+            page.projects.innerHTML = response;
+        
+            nav.projects.onclick = () => {
+                hideElement(page.resume);
+                hideElement(page.blog);
+                unhideElement(page.projects);
+            };
+        });
+
+        importData('site/blog.html', (response) => {
+            page.blog.innerHTML = response;
+        
+            nav.blog.onclick = () => {
+                hideElement(page.resume);
+                hideElement(page.projects);
+                unhideElement(page.blog);
+            };
+        });
+    </script>
 </body>
 </html>
