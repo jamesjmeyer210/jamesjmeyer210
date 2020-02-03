@@ -4,8 +4,7 @@
 if [ "$(whereis simple-http-server)" != "simple-http-server:\n" ] ; then
   simple-http-server --ip 127.0.0.1 \
   	--port 8000 \
-  	--nocache \
-  	--index
+  	--nocache 
 else
 # it cannot be found so recommend installing it
 	println "%s\n%s\n" \
