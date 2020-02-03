@@ -3,11 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/terminal.css">
+    <!-- <link rel="stylesheet" href="css/spectre.min.css"> -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/lg.css">
+    <link rel="stylesheet" href="css/md.css">
+    <link rel="stylesheet" href="css/sm.css">
+    <link rel="stylesheet" href="css/xs.css">
     <title>James Meyer</title>
 </head>
 </body>
-	<main id="terminal"></main>
-	<script src="js/index.js"></script>
+    <header id="header" class="text-center">
+        <h1>James Meyer</h1>
+        <br>
+        <h2>Full Stack Software Engineer</h2>
+        <h2>Performance Engineer</h2>
+        <h2>Designer</h2>
+        <br>
+    </header>
+    <hr>
+    <nav id="main">
+        <div id="links" class="row text-center">
+            <div class="column lg-col-33 md-col-33 sm-col-33">
+                <div id="resume-panel" class="nav-link-panel">
+                    <a class="nav-link">Resume</a>
+                </div>
+            </div>
+            <div class="column lg-col-33 md-col-33 sm-col-33">
+                <div id="projects-panel" class="nav-link-panel">
+                    <a class="nav-link">Projects</a>
+                </div>
+            </div>
+            <div class="column lg-col-33 md-col-33 sm-col-33">
+                <div id="about-panel" class="nav-link-panel">
+                    <a class="nav-link">Blog</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main id="main">
+        <div id="resume"></div>
+        <div id="projects"></div>
+        <div id="blog"></div>
+    </main>
+    <!-- <script type="text/javascript" src="js/showdown.min.js"></script>
+    <script type="text/javascript" src="js/render-markdown.js"></script>
+    <script>
+        renderMarkdown('main', 'index.md');
+    </script> -->
 </body>
 </html>
