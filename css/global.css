@@ -158,35 +158,3 @@ ul li:before {
   font-size: 1rem;
   font-weight: lighter;
 }
-
-/*
-    *     *   shapes   *     *     *
-*/
-.arch {
-  border: 2px solid #000; /* the 'strokes' of the arc */
-  display: inline-block;
-  /* width: 128px; */
-  /* height: 128px; */
-  width: 128px;
-  height: 128px;
-  border-radius: 50%; /* for making the elements 'round' */
-  border-top-color: transparent; /* hiding the top border */
-  border-bottom-color: transparent;
-  border-right-color: transparent;
-}
-
-/* .rotate-45 {
-  transform: rotate(45deg);
-}
-
-.rotate-135 {
-  transform: rotate(135deg);
-}
-
-.rotate-225 {
-  transform: rotate(225deg);
-}
-
-.rotate-315 {
-  transform: rotate(315deg);
-} */
