@@ -41,13 +41,12 @@
             </div>
         </div>
     </nav>
-    <main id="main">
+    <main id="main" class="container">
         <div id="resume-page" class="hide"></div>
         <div id="projects-page" class="hide"></div>
         <div id="blog-page" class="hide"></div>
     </main>
-    <!-- <script type="text/javascript" src="js/showdown.min.js"></script>
-    <script type="text/javascript" src="js/render-markdown.js"></script> -->
+    <script type="text/javascript" src="js/showdown.min.js"></script>
     <script type="text/javascript" src="js/resume.js"></script>
     <script>
         const nav = {
@@ -87,8 +86,10 @@
             resume(); // run the resume.js file
         });
 
-        importData('site/projects.html', (response) => {
-            page.projects.innerHTML = response;
+        let mdToHtml = new showdown.Converter();
+
+        importData('site/projects.md', (response) => {
+            page.projects.innerHTML = mdToHtml.makeHtml(response);
         
             nav.projects.onclick = () => {
                 hideElement(page.resume);
@@ -97,8 +98,8 @@
             };
         });
 
-        importData('site/blog.html', (response) => {
-            page.blog.innerHTML = response;
+        importData('site/blog.md', (response) => {
+            page.blog.innerHTML = mdToHtml.makeHtml(response);
         
             nav.blog.onclick = () => {
                 hideElement(page.resume);
