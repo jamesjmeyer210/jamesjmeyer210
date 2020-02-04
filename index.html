@@ -65,7 +65,7 @@
             let req = new XMLHttpRequest();
             req.open('GET', `${window.origin}/${file}`);
             req.addEventListener('load', (event) => {
-                callback(event.originalTarget.responseText);
+                callback(event.srcElement.response);
             });
             req.send();
         };
