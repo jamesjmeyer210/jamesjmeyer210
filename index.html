@@ -3,111 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="css/spectre.min.css"> -->
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/lg.css">
-    <link rel="stylesheet" href="css/md.css">
-    <link rel="stylesheet" href="css/sm.css">
-    <link rel="stylesheet" href="css/xs.css">
+    <link rel="stylesheet" href="css/custom.css">
     <title>James Meyer</title>
 </head>
-</body>
-    <header id="header" class="text-center">
+<body class="font-default" style="text-align: left">
+    <header>
         <h1>James Meyer</h1>
-        <br>
-        <h2>Full Stack Software Engineer</h2>
-        <h2>Performance Engineer</h2>
-        <h2>Designer</h2>
+        <h2>Software Engineer</h2>
     </header>
-    <br>
-    <hr>
-    <br>
-    <nav id="nav" class="container">
-        <div id="links" class="row text-center">
-            <div class="column lg-col-33 md-col-33 sm-col-33">
-                <div id="resume-panel" class="nav-link-panel">
-                    <a class="nav-link">Resume</a>
-                </div>
-            </div>
-            <div class="column lg-col-33 md-col-33 sm-col-33">
-                <div id="projects-panel" class="nav-link-panel">
-                    <a class="nav-link">Projects</a>
-                </div>
-            </div>
-            <div class="column lg-col-33 md-col-33 sm-col-33">
-                <div id="blog-panel" class="nav-link-panel">
-                    <a class="nav-link">Blog</a>
-                </div>
-            </div>
-        </div>
+    <nav>
+        <ul style="list-style: none">
+            <li>
+                <a href="site/resume.html">Resume</a>
+            </li>
+            <li>
+                <a href="site/blogs.html">Blogs</a>
+            </li>
+        </ul>
     </nav>
-    <main id="main" class="container">
-        <div id="resume-page" class="hide"></div>
-        <div id="projects-page" class="hide"></div>
-        <div id="blog-page" class="hide"></div>
-    </main>
-    <script type="text/javascript" src="js/showdown.min.js"></script>
-    <script type="text/javascript" src="js/resume.js"></script>
-    <script type="text/javascript" src="js/blog.js"></script>
-    <script>
-        const nav = {
-            resume: document.getElementById('resume-panel'),
-            projects: document.getElementById('projects-panel'),
-            blog: document.getElementById('blog-panel'),
-        };
-
-        const page = {
-            resume: document.getElementById('resume-page'),
-            projects: document.getElementById('projects-page'),
-            blog: document.getElementById('blog-page'),
-        };
-        
-        const importData = (file, callback) => {
-            let req = new XMLHttpRequest();
-            req.open('GET', `${window.origin}/${file}`);
-            req.addEventListener('load', (event) => {
-                callback(event.srcElement.response);
-            });
-            req.send();
-        };
-
-        const hideElement = (id) => { id.className = 'hide'; };
-
-        const unhideElement = (id) => { id.className = 'container'; };
-
-        importData('site/resume.html', (response) => {
-            page.resume.innerHTML = response;
-        
-            nav.resume.onclick = () => {
-                hideElement(page.projects);
-                hideElement(page.blog);
-                unhideElement(page.resume);
-            };
-
-            resume(); // run the resume.js file
-        });
-
-        let mdToHtml = new showdown.Converter();
-
-        importData('site/projects.md', (response) => {
-            page.projects.innerHTML = mdToHtml.makeHtml(response);
-        
-            nav.projects.onclick = () => {
-                hideElement(page.resume);
-                hideElement(page.blog);
-                unhideElement(page.projects);
-            };
-        });
-
-        importData('site/blog.md', (response) => {
-            page.blog.innerHTML = mdToHtml.makeHtml(response);
-        
-            nav.blog.onclick = () => {
-                hideElement(page.resume);
-                hideElement(page.projects);
-                unhideElement(page.blog);
-            };
-        });
-    </script>
 </body>
 </html>
