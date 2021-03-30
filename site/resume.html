@@ -7,17 +7,29 @@
   <title>James Meyer | Resume</title>
 </head>
 <body class="font-default">
-  <nav>
+  <nav id="navigation">
     <a href="../index.html">Home</a>
+    <div>
+      <h4>Sections</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact-links">Contact</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#technical-skills">Technical Skills</a></li>
+        <li><a href="#professional-exp">Professional Experience</a></li>
+        <li><a href="#open-source-projects-and-contributions">Open Source Projects and Contributions</a></li>
+      </ul>
+    </div>
   </nav>
+  <br>
   <article>
     <!-- Introductory Paragraph -->
-    <div class="row">
+    <section id="about">
       <p><strong>About Me</strong> I enjoy finding elegant solutions to problems.
         Learning to code has been an excellent conduit for that trait.
         As the market evolves and we advance, I look forward to making many contributions to the vast realm of software.
       </p>
-    </div>
+    </section>
     <hr>
     <!-- Contact Links -->
     <section id="contact-links">
@@ -30,6 +42,7 @@
         </li>
       </ul>
     </section>
+    <br>
     <!-- Education -->
     <section id="education">
       <h2>Education</h2>
@@ -48,6 +61,7 @@
         </div>
       </div>
     </section>
+    <br>
     <!-- Technical Skills -->
     <section id="technical-skills">
       <h2>Technical Skills</h2>
@@ -105,6 +119,7 @@
         </li>
       </ul>
     </section>
+    <br>
     <!-- Professional Experience -->
     <section id="professional-exp">
       <h2>Professional Experience</h2>
@@ -156,6 +171,7 @@
         </div>
       </div>
     </section>
+    <br>
     <!-- Open Source Projects and Contributions -->
     <section id="open-source-projects-and-contributions">
       <h2>Open Source Projects and Contributions</h2>
@@ -163,7 +179,7 @@
         <li>
           <div>
             <h4>Actix SQLx MySQL User CRUD</h4>
-            <p><a href="https://github.com/jamesjmeyer210/actix_sqlx_mysql_user_crud">Source Code</a></p>
+            <p><a href="https://github.com/jamesjmeyer210/actix_sqlx_mysql_user_crud" target="_blank">Source Code</a></p>
             <p>
               A CRUD for users and groups, written entirely in Rust, with full integration test coverage, designed to
               fit comfortably in a system of micro-services. This micro-service application uses the Actix web
@@ -179,7 +195,7 @@
         <li>
           <div>
             <h4>Moria</h4>
-            <p><a href="https://github.com/jamesjmeyer210/moria">Source Code</a></p>
+            <p><a href="https://github.com/jamesjmeyer210/moria" target="_blank">Source Code</a></p>
             <p>
               A reverse proxy jwt authenticator written in Rust, that leverages the Actix web framework, named after the
               treacherous mines of Moria that were traversed by the fellowship of the ring. Moria is an attempt at
@@ -191,98 +207,6 @@
         </li>
       </ul>
     </section>
-<!--        <div class="row">-->
-<!--          <h2>Professional Experience</h2>-->
-<!--          &lt;!&ndash; Item 0 &ndash;&gt;-->
-<!--          <div class="row">-->
-<!--            <div class="column lg-col-50">-->
-<!--              <strong>Cognizant Labs</strong>-->
-<!--            </div>-->
-<!--            <div class="column lg-col-50 text-right">-->
-<!--              April 2019 - Present-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="row">-->
-<!--            <div class="column lg-col-100 tabbed-box">-->
-<!--              <p><em>Full Stack Software Engineer</em></p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div clas="row">-->
-<!--            <div class="column lg-col-10"></div>-->
-<!--            <div class="column lg-col-90">-->
-<!--              <p>-->
-<!--              </p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          &lt;!&ndash; Item 1 &ndash;&gt;-->
-<!--          <div class="row">-->
-<!--            <div class="column lg-col-50">-->
-<!--              <strong>Bitcoin Tech Weekly</strong>-->
-<!--            </div>-->
-<!--            <div class="column lg-col-50 text-right">-->
-<!--              Dec 2017 - Jan 2018-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="row">-->
-<!--            <div class="column lg-col-100 tabbed-box">-->
-<!--              <p><em>Author / Editor / Researcher</em></p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div clas="row">-->
-<!--            <div class="column lg-col-10"></div>-->
-<!--            <div class="column lg-col-90">-->
-<!--              <p>-->
-<!--                As an author and editor for the news site, BitcoinTechWeekly.com, I was tasked with writing articles and weekly briefs on cryptography, cybersecurity, and blockchains. I dramatically expanded my knowledge of mathematics by reporting on the many cryptography advancements in the Bitcoin ecosystem. I was also exposed to Git, which is how we collaborated on our work across the world.-->
-<!--              </p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          &lt;!&ndash; Item 2 &ndash;&gt;-->
-<!--          <div class="row">-->
-<!--            <div class="column lg-col-50">-->
-<!--              <strong>Northeast Lakeview College</strong>-->
-<!--            </div>-->
-<!--            <div class="column lg-col-50 text-right">-->
-<!--              June 2017 - Sep 2018-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="row">-->
-<!--            <div class="column lg-col-100 tabbed-box">-->
-<!--              <p><em>Computer Science and Mathematics Tutor</em></p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div clas="row">-->
-<!--            <div class="column lg-col-10"></div>-->
-<!--            <div class="column lg-col-90">-->
-<!--              <p>-->
-<!--                As a tutor for the Alamo colleges, I worked with students from many backgrounds on many educational paths. There, I developed the capacity to communicate complex, nuanced ideas by breaking them down into small, digestible concepts. Most importantly, I learned to listen.-->
-<!--              </p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          &lt;!&ndash; Item 3 &ndash;&gt;-->
-<!--          <div class="row">-->
-<!--            <div class="column lg-col-50">-->
-<!--              <strong>HEB Warehouse</strong>-->
-<!--            </div>-->
-<!--            <div class="column lg-col-50 text-right">-->
-<!--              June 2014 - Januage 2015-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="row">-->
-<!--            <div class="column lg-col-100 tabbed-box">-->
-<!--              <p><em>Order Selector</em></p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div clas="row">-->
-<!--            <div class="column lg-col-10"></div>-->
-<!--            <div class="column lg-col-90">-->
-<!--              <p>-->
-<!--                As an order selector for HEB, I worked under strict standards in physically harsh conditions. In the warehouse, I was exposed to the scale and complexity of HEB's advanced shipping system, from the perspective of the entry level worker.-->
-<!--              </p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
   </article>
 </body>
 </html>
