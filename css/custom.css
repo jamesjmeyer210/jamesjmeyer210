@@ -1,3 +1,7 @@
 .text-center {
     text-align: center
 }
+
+.font-default {
+    font-family: "Lucida Console", "Courier New", monospace;
+}
