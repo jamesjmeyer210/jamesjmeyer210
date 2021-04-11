@@ -26,9 +26,9 @@
             nature of this application (for any interested security researches). In order to get the Citrix Workspace
             working on my Linux OS, I needed the following three dependencies:</p>
             <ul>
-                <li><a href="https://packages.ubuntu.com/bionic/amd64/libicu60">libicu60</a></li>
-                <li><a href="https://packages.ubuntu.com/bionic/libjavascriptcoregtk-3.0-0">libjavascriptcoregtk-3.0-0</a></li>
-                <li><a href="https://packages.ubuntu.com/xenial/amd64/libwebkitgtk-1.0-0">libwebkitgtk-1.0-0</a></li>
+                <li><a href="https://packages.ubuntu.com/bionic/amd64/libicu60" target="_blank">libicu60</a></li>
+                <li><a href="https://packages.ubuntu.com/bionic/libjavascriptcoregtk-3.0-0" target="_blank">libjavascriptcoregtk-3.0-0</a></li>
+                <li><a href="https://packages.ubuntu.com/xenial/amd64/libwebkitgtk-1.0-0" target="_blank">libwebkitgtk-1.0-0</a></li>
             </ul>
             <p>Let's use <code>wget</code> to download all these packages:</p>
             <pre><code>wget http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu60_60.2-3ubuntu3_amd64.deb
@@ -43,7 +43,7 @@ dpkg -i libwebkitgtk-1.0-0_2.4.11-4_amd64.deb</code></pre>
         <section>
             <h2>The Workspace App</h2>
             <p>Now we're ready to install the Citrix Workspace. You'll be able to find the latest version of the Citrix
-                Workspace <a href="https://www.citrix.com/downloads/workspace-app/linux/workspace-app-for-linux-latest.html">here</a>.
+                Workspace <a href="https://www.citrix.com/downloads/workspace-app/linux/workspace-app-for-linux-latest.html" target="_blank">here</a>.
                 Find the section labelled <q>Debian Packages</q>, and download either the
                 <q>Citrix Workspace app for Linux (x86_64)</q> or the <q>Citrix Workspace app for Linux (x86)</q>. For
             my machine (Dell XPS 15), I went with the first.</p>
@@ -74,7 +74,7 @@ exec ctx_rehash</code></pre>
             Workspace when kaput. It took me about a day and a half of piecing together crumbs of information across the
             internet to figure this out, along with running some sketchy shell commands (one of which uninstalled my
             GUI). My incentive to provide this article is so that reader may have a little more direction than I did.</em></p>
-            <p>Following the intial install, I've been able to update the Citrix Workspace app seamlessly, and only had
+            <p>Following the initial install, I've been able to update the Citrix Workspace app seamlessly, and only had
             to make a minor configuration change when I transitioned from a fibre based internet to a 5G wireless
             internet service.</p>
         </section>
