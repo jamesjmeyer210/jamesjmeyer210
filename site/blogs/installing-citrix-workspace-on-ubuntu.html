@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../css/custom.css">
+    <link rel="stylesheet" href="../../css/code.css">
     <title>Installing Citrix on Ubuntu</title>
 </head>
 <body class="font-default">
@@ -18,7 +19,7 @@
         </section>
         <section>
             <p>The following tutorial should work on all versions of Ubuntu, 14+ and Debian 7+, or any distro with the
-                capacity to install <code>.deb</code> packages.</p>
+                capacity to install <code class="syntax">.deb</code> packages.</p>
         </section>
         <section>
             <h2>Dependencies</h2>
@@ -30,15 +31,15 @@
                 <li><a href="https://packages.ubuntu.com/bionic/libjavascriptcoregtk-3.0-0" target="_blank">libjavascriptcoregtk-3.0-0</a></li>
                 <li><a href="https://packages.ubuntu.com/xenial/amd64/libwebkitgtk-1.0-0" target="_blank">libwebkitgtk-1.0-0</a></li>
             </ul>
-            <p>Let's use <code>wget</code> to download all these packages:</p>
-            <pre><code>wget http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu60_60.2-3ubuntu3_amd64.deb
-wget http://archive.ubuntu.com/ubuntu/pool/universe/w/webkitgtk/libjavascriptcoregtk-1.0-0_2.4.11-4_amd64.deb
-wget http://archive.ubuntu.com/ubuntu/pool/universe/w/webkitgtk/libwebkitgtk-1.0-0_2.4.11-4_amd64.deb
+            <p>Let's use <code class="syntax">wget</code> to download all these packages:</p>
+            <pre><code><span class="cli-app">wget</span> http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu60_60.2-3ubuntu3_amd64.deb
+<span class="cli-app">wget</span> http://archive.ubuntu.com/ubuntu/pool/universe/w/webkitgtk/libjavascriptcoregtk-1.0-0_2.4.11-4_amd64.deb
+<span class="cli-app">wget</span> http://archive.ubuntu.com/ubuntu/pool/universe/w/webkitgtk/libwebkitgtk-1.0-0_2.4.11-4_amd64.deb
 </code></pre>
-            <p>Using <code>sudo</code>, install the dependencies like so:</p>
-            <pre><code>dpkg -i libicu60_60.2-3ubuntu3_amd64.deb
-dpkg -i libjavascriptcoregtk-1.0-0_2.4.11-4_amd64.deb
-dpkg -i libwebkitgtk-1.0-0_2.4.11-4_amd64.deb</code></pre>
+            <p>Using <code class="syntax">sudo</code>, install the dependencies like so:</p>
+            <pre><code><span class="cli-app">dpkg</span> -i libicu60_60.2-3ubuntu3_amd64.deb
+<span class="cli-app">dpkg</span> -i libjavascriptcoregtk-1.0-0_2.4.11-4_amd64.deb
+<span class="cli-app">dpkg</span> -i libwebkitgtk-1.0-0_2.4.11-4_amd64.deb</code></pre>
         </section>
         <section>
             <h2>The Workspace App</h2>
@@ -47,27 +48,27 @@ dpkg -i libwebkitgtk-1.0-0_2.4.11-4_amd64.deb</code></pre>
                 Find the section labelled <q>Debian Packages</q>, and download either the
                 <q>Citrix Workspace app for Linux (x86_64)</q> or the <q>Citrix Workspace app for Linux (x86)</q>. For
             my machine (Dell XPS 15), I went with the first.</p>
-            <p>Once more, using <code>sudo</code>, let's install the download:</p>
-            <pre><code>dpkg -i icaclientWeb*.deb</code></pre>
+            <p>Once more, using <code class="syntax">sudo</code>, let's install the download:</p>
+            <pre><code><span class="cli-app">dpkg</span> -i icaclientWeb*.deb</code></pre>
         </section>
         <section>
             <h2>The Certificate</h2>
             <p>It's likely that you'll need a certificate in order to get the Workspace receiver functioning. You'll
-                need to download a <code>.crt</code> file. In my case, I ran the following command (yours may be
+                need to download a <code class="syntax">.crt</code> file. In my case, I ran the following command (yours may be
                 different):</p>
-            <pre><code>wget https://secure.globalsign.com/cacert/gsextendvalsha2g3r3.crt</code></pre>
-            <p>Under <code>sudo</code>, copy the certificate into the ICAClient's keystore:</p>
-            <pre><code>cp -v gsextendvalsha2g3r3.crt /opt/Citrix/ICAClient/keystore/cacerts/</code></pre>
+            <pre><code><span class="cli-app">wget</span> https://secure.globalsign.com/cacert/gsextendvalsha2g3r3.crt</code></pre>
+            <p>Under <code class="syntax">sudo</code>, copy the certificate into the ICAClient's keystore:</p>
+            <pre><code><span class="cli-app">cp</span> -v gsextendvalsha2g3r3.crt /opt/Citrix/ICAClient/keystore/cacerts/</code></pre>
             <p>Then we'll need to navigate to the ICAClient's utilities folder, which contains a myriad of command line
-                applications. We have to run <code>ctx_rehash</code> in order make use of the certificate.</p>
-            <pre><code>cd /opt/Citrix/ICAClient/util/
-exec ctx_rehash</code></pre>
+                applications. We have to run <code class="syntax">ctx_rehash</code> in order make use of the certificate.</p>
+            <pre><code><span class="cli-app">cd</span> /opt/Citrix/ICAClient/util/</code></pre>
+            <pre><code><span class="cli-app">exec</span> ctx_rehash</code></pre>
         </section>
         <section>
             <h2>Conclusion</h2>
             <p>Following the final step, you should be able to connect to your remote desktop environment via the Citrix
                 Workspace application. This should be facilitated by your designated browser which will download a
-                <code>.ica</code> file when you navigate to whatever page is dictated by your organization's Citrix
+                <code class="syntax">.ica</code> file when you navigate to whatever page is dictated by your organization's Citrix
             administrator.</p>
             <p><strong>Disclaimer:</strong> <em>I'm not an employee of Citrix or a consultant. I'm just some dude with
             computer hacking skills whose company IT department didn't respond when my Windows instance of the Citrix
