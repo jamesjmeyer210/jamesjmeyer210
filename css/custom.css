@@ -21,4 +21,9 @@ pre {
 
 .font-default {
     font-family: "Lucida Console", "Courier New", monospace;
+    text-align: left;
+}
+
+.list.minimal {
+    list-style: none;
 }
