@@ -1,0 +1,23 @@
+nav {
+    background-color: black;
+    padding: 1rem 1rem 0.5rem;
+    color: #EEEDF1;
+    display: flex;
+}
+
+nav strong {
+    width: auto;
+    float: left;
+}
+
+nav ul {
+    list-style: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+nav ul li {
+    width: auto;
+    float: left;
+    padding-right: 0.5rem;
+}
