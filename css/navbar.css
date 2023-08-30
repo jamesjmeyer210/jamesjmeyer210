@@ -1,8 +1,17 @@
 nav {
-    background-color: black;
-    padding: 1rem 1rem 0.5rem;
+    background-color: #34313D;
+    padding: 1.5rem 1rem 1.5rem 1rem;
     color: #EEEDF1;
     display: flex;
+}
+
+nav a {
+    color: #EEEDF1;
+    text-decoration: none;
+}
+
+nav a:hover {
+    font-weight: bold;
 }
 
 nav strong {
@@ -20,4 +29,5 @@ nav ul li {
     width: auto;
     float: left;
     padding-right: 0.5rem;
+    padding-left: 0.5rem;
 }
