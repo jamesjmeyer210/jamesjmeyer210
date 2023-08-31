@@ -31,3 +31,29 @@ nav ul li {
     padding-right: 0.5rem;
     padding-left: 0.5rem;
 }
+
+aside {
+    /*width: 20%;*/
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #34313D;
+    color: #EEEDF1;
+}
+
+aside a {
+    color: #EEEDF1;
+    text-decoration: none;
+}
+
+aside ul {
+    list-style: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    position: sticky;
+    top: 2rem;
+}
+
+aside ul li {
+    padding: 0.25rem 0.5rem;
+}
