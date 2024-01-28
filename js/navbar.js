@@ -20,6 +20,7 @@
 
         const getHomePage = (page) => {
             switch (page) {
+                case '': return `<strong>James Meyer</strong>`;
                 case 'index.html': return `<strong>James Meyer</strong>`;
                 default: return `<a href="${depthStr}index.html">Home</a>`;
             }
@@ -29,8 +30,8 @@
             const pages = [
                 { href: `${depthStr}site/resume.html`, text: "Resume" },
                 { href: `${depthStr}site/articles.html`, text: "Articles" },
-                { href: `${depthStr}site/blogs.html`, text: "blogs.html" },
-                { href: `${depthStr}site/tutorials.html`, text: "tutorials.html" }
+                { href: `${depthStr}site/blogs.html`, text: "Blogs" },
+                { href: `${depthStr}site/tutorials.html`, text: "Tutorials" }
             ];
 
             return pages.filter(x => x.href !== currentPage)
