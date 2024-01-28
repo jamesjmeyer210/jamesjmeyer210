@@ -1,3 +1,5 @@
+'use strict';
+
 (() => {
     const getCurrentPage = () => {
         const parts = window.location.pathname.split('/');
@@ -6,14 +8,26 @@
 
 
     const getNavbarHtml = (currentPage) => {
+        const getDepth = () => {
+            return window.location.pathname.split('/').length - 2;
+        }
+
+        const depth = getDepth();
+        console.debug("depth: " + depth);
+
         const getDepthStr = () => {
-            const base = window.location.pathname;
-            const depth = base.split('/').length - 2;
             let depthStr = "";
             for(let i = 0; i < depth; i++) {
                 depthStr += '../'
             }
             return depthStr;
+        }
+
+        const getSiteStr = () => {
+            switch (depth) {
+                case 0: return 'site/';
+                default: return getDepthStr() + 'site/';
+            }
         }
 
         const depthStr = getDepthStr();
@@ -27,15 +41,18 @@
         };
 
         const getPageList = (currentPage) => {
+            console.debug("currentPage: " + currentPage);
+            console.debug("siteStr: " + getSiteStr());
+
             const pages = [
-                { href: `${depthStr}site/resume.html`, text: "Resume" },
-                { href: `${depthStr}site/articles.html`, text: "Articles" },
-                { href: `${depthStr}site/blogs.html`, text: "Blogs" },
-                { href: `${depthStr}site/tutorials.html`, text: "Tutorials" }
+                { href: `resume.html`, text: "Resume" },
+                { href: `articles.html`, text: "Articles" },
+                { href: `blogs.html`, text: "Blogs" },
+                { href: `tutorials.html`, text: "Tutorials" }
             ];
 
             return pages.filter(x => x.href !== currentPage)
-                .map(x => `<li><a href="${x.href}">${x.text}</a></li>`)
+                .map(x => `<li><a href="${getSiteStr() + x.href}">${x.text}</a></li>`)
                 .join('');
         };
 
