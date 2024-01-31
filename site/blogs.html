@@ -9,13 +9,38 @@
 </head>
 <body class="font-default">
     <script id="navbar" src="../js/navbar.js"></script>
-    <main>
-        <div>
-            <h2>jamesjmeyer210.github.io</h2>
-            <ol>
-                <li>[2021-03-30] <a href="blogs/just-do-it.html">Just Do It</a></li>
-            </ol>
-        </div>
+    <main id="main">
+        <ol id="blog-list"></ol>
     </main>
+    <script src="../js/include/showdown.min.js"></script>
+    <script>
+        (async () => {
+            const response = await fetch(`/resources/blogs.json`);
+            const blogs = await response.json();
+            console.assert(Array.isArray(blogs));
+
+            for(let i = 0; i < blogs.length; i++){
+                fetch(`/resources/blogs/${blogs[i].href}`)
+                    .then(res => res.text())
+                    .then(text => {
+                        const converter = new showdown.Converter();
+                        const html = converter.makeHtml(text);
+
+                        const article = document.createElement('article');
+                        article.id = blogs[i].href;
+                        article.innerHTML = html;
+
+                        const main = document.getElementById('main');
+                        main.appendChild(article);
+
+                        const blogLink = document.createElement('li');
+                        blogLink.innerHTML = `[${blogs[i].date}] <a href="#${blogs[i].href}">${blogs[i].title}</a>`
+
+                        const blogList = document.getElementById('blog-list');
+                        blogList.appendChild(blogLink);
+                    });
+            }
+        })();
+    </script>
 </body>
 </html>
