@@ -1,7 +1,12 @@
 [
   {
     "title": "Just Do It",
-    "href": "just-do-it.md",
+    "href": "just-do-it.html",
     "date": "2021-03-30"
+  },
+  {
+    "title": "A Little Javascript Never Hurt",
+    "href": "a-little-js-never-hurt.html",
+    "date": "2024-01-31"
   }
 ]

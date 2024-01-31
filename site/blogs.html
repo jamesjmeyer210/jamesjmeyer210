@@ -21,38 +21,12 @@
 
             for(let i = 0; i < blogs.length; i++){
                 const blogLink = document.createElement('li');
-                blogLink.innerHTML = `[${blogs[i].date}] <a onclick="showArticle('${blogs[i].href}');return false;" href="#">${blogs[i].title}</a>`
+                blogLink.innerHTML = `[${blogs[i].date}] <a href="blogs/${blogs[i].href}">${blogs[i].title}</a>`
 
                 const blogList = document.getElementById('blog-list');
                 blogList.appendChild(blogLink);
             }
         })();
-    </script>
-    <script src="../js/include/showdown.min.js"></script>
-    <script>
-        const getOrCreateArticle = (id) => {
-            let element = document.getElementById(id);
-            if (element === null || element === undefined) {
-                element = document.createElement('article');
-                element.id = id;
-            }
-            return element;
-        }
-
-        const showArticle = (articleUrl) => {
-            fetch(`/resources/blogs/${articleUrl}`)
-                .then(res => res.text())
-                .then(text => {
-                    const converter = new showdown.Converter();
-                    const html = converter.makeHtml(text);
-
-                    const article = getOrCreateArticle('current-article');
-                    article.innerHTML = html;
-
-                    const main = document.getElementById('main');
-                    main.appendChild(article);
-                });
-        };
     </script>
 </body>
 </html>
