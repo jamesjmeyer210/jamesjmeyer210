@@ -10,9 +10,9 @@
 <body class="font-default">
     <script id="navbar" src="../js/navbar.js"></script>
     <main id="main">
+        <h2>Blog Posts</h2>
         <ol id="blog-list"></ol>
     </main>
-    <script src="../js/include/showdown.min.js"></script>
     <script>
         (async () => {
             const response = await fetch(`/resources/blogs.json`);
@@ -20,27 +20,39 @@
             console.assert(Array.isArray(blogs));
 
             for(let i = 0; i < blogs.length; i++){
-                fetch(`/resources/blogs/${blogs[i].href}`)
-                    .then(res => res.text())
-                    .then(text => {
-                        const converter = new showdown.Converter();
-                        const html = converter.makeHtml(text);
+                const blogLink = document.createElement('li');
+                blogLink.innerHTML = `[${blogs[i].date}] <a onclick="showArticle('${blogs[i].href}');return false;" href="#">${blogs[i].title}</a>`
 
-                        const article = document.createElement('article');
-                        article.id = blogs[i].href;
-                        article.innerHTML = html;
-
-                        const main = document.getElementById('main');
-                        main.appendChild(article);
-
-                        const blogLink = document.createElement('li');
-                        blogLink.innerHTML = `[${blogs[i].date}] <a href="#${blogs[i].href}">${blogs[i].title}</a>`
-
-                        const blogList = document.getElementById('blog-list');
-                        blogList.appendChild(blogLink);
-                    });
+                const blogList = document.getElementById('blog-list');
+                blogList.appendChild(blogLink);
             }
         })();
+    </script>
+    <script src="../js/include/showdown.min.js"></script>
+    <script>
+        const getOrCreateArticle = (id) => {
+            let element = document.getElementById(id);
+            if (element === null || element === undefined) {
+                element = document.createElement('article');
+                element.id = id;
+            }
+            return element;
+        }
+
+        const showArticle = (articleUrl) => {
+            fetch(`/resources/blogs/${articleUrl}`)
+                .then(res => res.text())
+                .then(text => {
+                    const converter = new showdown.Converter();
+                    const html = converter.makeHtml(text);
+
+                    const article = getOrCreateArticle('current-article');
+                    article.innerHTML = html;
+
+                    const main = document.getElementById('main');
+                    main.appendChild(article);
+                });
+        };
     </script>
 </body>
 </html>
