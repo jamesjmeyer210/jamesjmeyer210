@@ -9,13 +9,24 @@
 </head>
 <body class="font-default">
     <script id="navbar" src="../js/navbar.js"></script>
-    <main>
-        <div>
-            <h2>jamesjmeyer210.github.io</h2>
-            <ol>
-                <li>[2021-03-30] <a href="blogs/just-do-it.html">Just Do It</a></li>
-            </ol>
-        </div>
+    <main id="main">
+        <h2>Blog Posts</h2>
+        <ol id="blog-list"></ol>
     </main>
+    <script>
+        (async () => {
+            const response = await fetch(`/resources/blogs.json`);
+            const blogs = await response.json();
+            console.assert(Array.isArray(blogs));
+
+            for(let i = 0; i < blogs.length; i++){
+                const blogLink = document.createElement('li');
+                blogLink.innerHTML = `[${blogs[i].date}] <a href="blogs/${blogs[i].href}">${blogs[i].title}</a>`
+
+                const blogList = document.getElementById('blog-list');
+                blogList.appendChild(blogLink);
+            }
+        })();
+    </script>
 </body>
 </html>

@@ -9,55 +9,15 @@
 </head>
 <body class="font-default">
     <script id="navbar" src="../../js/navbar.js"></script>
-    <main>
-        <article>
-            <section>
-                <h1>Just Do It</h1>
-                <p>2021-03-30</p>
-            </section>
-            <section>
-                <p>
-                    <em>"Paralysis by analysis! If it were up the engineers, a car would never leave the assembly line!" -
-                        Dan Pena</em>
-                </p>
-                <p>
-                    This site has been online for over 2 years. My intention upon its creation was that I would be regularly
-                    updating it with blog posts. I have plenty of thoughts and discoveries that belong on the internet. So
-                    what held me up? Why did it take me over 2 years to start writing this first blog post? Was it a lack of
-                    knowledge? Was it a lack of ambition?
-                </p>
-                <p>
-                    The simple truth is, I spun in circles, paralyzed by over analysis. <em>"I'll make this site like the
-                    one I worked on for Bitcoin Tech Weekly"</em> - I originally thought to myself. I'll pull in a few
-                    Javascript libraries and convert Markdown to HTML in the browser. <em>"Maybe I should use this site as
-                    a platform to learn a Javascript framework. But which one would I use? React? Angular?"</em> - I
-                    distracted myself. <em>"I don't need React to write blogs! I just need to find a simple CSS framework."</em>
-                    - I realized.
-                </p>
-                <p>
-                    How many times had I read through the sparse, Spectre CSS docs? Then I realized: <strong>I don't need
-                    any of this stuff</strong>. I don't need a framework. I don't need an over-engineered design. I don't
-                    even need a CSS library. I don't even need a navbar! So that is what this site has become - an exercise
-                    of minimalism, inspired by a famous <a href="https://motherfuckingwebsite.com/" target="_blank">website</a>
-                    that brings nostalgia to all developers.
-                </p>
-                <p>
-                    At the time of writing this post, this website uses a total of one CSS classes. Yes, this beautiful font
-                    class:
-                </p>
-                <pre><code><span style="color: #5036A0">.font-default</span> {
-    font-family: <span style="color: #48A034">"Lucida Console"</span>, <span style="color: #48A034">"Courier New"</span>, monospace;
-}</code></pre>
-                <p>
-                    So what did I learn? Just do it. Of course, I'll improve the appearance of this site over time. But now
-                    it's actually worth visiting. And frankly, I'm much happier with this stupid simple HTML/CSS only site
-                    than I would have been with anything else.
-                </p>
-            </section>
-        </article>
+    <main id="main">
     </main>
     <footer>
         <a href="#navbar">Back to top</a>
     </footer>
+    <script type="application/javascript" src="../../js/include/showdown.min.js"></script>
+    <script type="application/javascript" src="../../js/blog.js"></script>
+    <script>
+        showArticle('../../resources/blogs/just-do-it.md');
+    </script>
 </body>
 </html>
