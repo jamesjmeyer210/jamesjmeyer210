@@ -21,16 +21,31 @@
                   <a href="site/resume.html">Resume</a>
               </li>
               <li>
-                  <a href="site/articles.html">Articles [40]</a>
+                  <a id="link-articles" href="site/articles.html">Articles</a>
               </li>
               <li>
-                  <a href="site/blogs.html">Blogs [1]</a>
+                  <a id="link-blogs" href="site/blogs.html">Blogs</a>
               </li>
               <li>
-                  <a href="site/tutorials.html">Tutorials [1]</a>
+                  <a id="link-tutorials" href="site/tutorials.html">Tutorials</a>
               </li>
           </ul>
       </article>
     </main>
+    <script>
+        const loadList = (src, id) => {
+            fetch(`resources/${src}`)
+                .then(res => res.json())
+                .then(json => json.length)
+                .then(len => {
+                    const element = document.getElementById(id);
+                    element.innerText += ` [${len}]`;
+                });
+        };
+
+        loadList('articles.json', 'link-articles');
+        loadList('blogs.json', 'link-blogs');
+        loadList('tutorials.json', 'link-tutorials');
+    </script>
 </body>
 </html>

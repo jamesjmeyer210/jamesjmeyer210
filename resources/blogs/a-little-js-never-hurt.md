@@ -1,7 +1,7 @@
 # A Little Javascript Never Hurt
 
 Well, I finally got around to updating my personal website.
-In the spirit of my <a onclick="showArticle('just-do-it.md');return false;" href="">previous post</a>, from 3 years ago,
+In the spirit of my [previous post](../blogs/just-do-it.html), from 3 years ago,
 I've made some updates to this website.
 They're fairly minimal, but for someone who's spent 95% of his time *not* writing Javascript, the tiny bit I've sprinkled
 onto my website it significant.
@@ -10,7 +10,7 @@ Before, I had zero javascript on this website.
 I also didn't do anything with it.
 What I always wanted to do, and finally got around to, is implementing Markdown to HTML rendering.
 Markdown has a special place in my heart because it was really all I needed to know in order to write for 
-[BitcoinTechWeekly](../site/articles.html).
+[BitcoinTechWeekly](../articles.html).
 
 Since this site is hosted on GitHub, I had two markdown strategies:
 1. Use the gh-pages framework and write the whole site in markdown.

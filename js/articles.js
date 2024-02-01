@@ -10,7 +10,7 @@
         }
     }
 
-    const response = await fetch(`${window.location.origin}/js/articles.json`);
+    const response = await fetch(`${window.location.origin}/resources/articles.json`);
     const articles = await response.json();
     console.assert(Array.isArray(articles));
 
