@@ -9,13 +9,24 @@
 </head>
 <body class="font-default">
     <script id="navbar" src="../js/navbar.js"></script>
-    <main>
-        <div>
-            <h2>jamesjmeyer210.github.io</h2>
-            <ol>
-                <li>[2021-04-11] <a href="tutorials/installing-citrix-workspace-on-ubuntu.html">Installing Citrix Workspace on Ubuntu</a></li>
-            </ol>
-        </div>
+    <main id="main">
+        <h2>Tutorials</h2>
+        <ol id="tutorial-list"></ol>
     </main>
+    <script>
+        (async () => {
+            const response = await fetch(`/resources/tutorials.json`);
+            const blogs = await response.json();
+            console.assert(Array.isArray(blogs));
+
+            for(let i = 0; i < blogs.length; i++){
+                const blogLink = document.createElement('li');
+                blogLink.innerHTML = `[${blogs[i].date}] <a href="tutorials/${blogs[i].href}">${blogs[i].title}</a>`
+
+                const blogList = document.getElementById('tutorial-list');
+                blogList.appendChild(blogLink);
+            }
+        })();
+    </script>
 </body>
 </html>
