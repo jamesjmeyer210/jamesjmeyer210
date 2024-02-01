@@ -112,7 +112,7 @@ const showArticle = (articleUrl) => {
 ## Conclusion
 
 I need to do two things next:
-1. Dynamically render a sidebar for each article.
-2. Add a syntax highlighting plugin for showdown.
+- [ ] Dynamically render a sidebar for each article.
+- [ ] Add a syntax highlighting plugin for showdown.
 
 Altogether it's pretty simple and a lot faster than WordPress.
