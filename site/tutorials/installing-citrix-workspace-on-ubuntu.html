@@ -10,77 +10,14 @@
 </head>
 <body class="font-default">
     <script id="navbar" src="../../js/navbar.js"></script>
-    <main>
-        <article>
-            <section>
-                <h1>Installing Citrix on Ubuntu</h1>
-                <p>2021-04-11</p>
-            </section>
-            <section>
-                <p>The following tutorial should work on all versions of Ubuntu, 14+ and Debian 7+, or any distro with the
-                    capacity to install <code class="syntax">.deb</code> packages.</p>
-            </section>
-            <section>
-                <h2>Dependencies</h2>
-                <p>The Citrix Workspace application has very outdated dependencies. This might call in question the secure
-                    nature of this application (for any interested security researches). In order to get the Citrix Workspace
-                    working on my Linux OS, I needed the following three dependencies:</p>
-                <ul>
-                    <li><a href="https://packages.ubuntu.com/bionic/amd64/libicu60" target="_blank">libicu60</a></li>
-                    <li><a href="https://packages.ubuntu.com/bionic/libjavascriptcoregtk-3.0-0" target="_blank">libjavascriptcoregtk-3.0-0</a></li>
-                    <li><a href="https://packages.ubuntu.com/xenial/amd64/libwebkitgtk-1.0-0" target="_blank">libwebkitgtk-1.0-0</a></li>
-                </ul>
-                <p>Let's use <code class="syntax">wget</code> to download all these packages:</p>
-                <pre><code><span class="cli-app">wget</span> http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu60_60.2-3ubuntu3_amd64.deb
-<span class="cli-app">wget</span> http://archive.ubuntu.com/ubuntu/pool/universe/w/webkitgtk/libjavascriptcoregtk-1.0-0_2.4.11-4_amd64.deb
-<span class="cli-app">wget</span> http://archive.ubuntu.com/ubuntu/pool/universe/w/webkitgtk/libwebkitgtk-1.0-0_2.4.11-4_amd64.deb</code></pre>
-                <p>Using <code class="syntax">sudo</code>, install the dependencies like so:</p>
-                <pre><code><span class="cli-app">dpkg</span> -i libicu60_60.2-3ubuntu3_amd64.deb
-<span class="cli-app">dpkg</span> -i libjavascriptcoregtk-1.0-0_2.4.11-4_amd64.deb
-<span class="cli-app">dpkg</span> -i libwebkitgtk-1.0-0_2.4.11-4_amd64.deb</code></pre>
-            </section>
-            <section>
-                <h2>The Workspace App</h2>
-                <p>Now we're ready to install the Citrix Workspace. You'll be able to find the latest version of the Citrix
-                    Workspace <a href="https://www.citrix.com/downloads/workspace-app/linux/workspace-app-for-linux-latest.html" target="_blank">here</a>.
-                    Find the section labelled <q>Debian Packages</q>, and download either the
-                    <q>Citrix Workspace app for Linux (x86_64)</q> or the <q>Citrix Workspace app for Linux (x86)</q>. For
-                    my machine (Dell XPS 15), I went with the first.</p>
-                <p>Once more, using <code class="syntax">sudo</code>, let's install the download:</p>
-                <pre><code><span class="cli-app">dpkg</span> -i icaclientWeb*.deb</code></pre>
-            </section>
-            <section>
-                <h2>The Certificate</h2>
-                <p>It's likely that you'll need a certificate in order to get the Workspace receiver functioning. You'll
-                    need to download a <code class="syntax">.crt</code> file. In my case, I ran the following command (yours may be
-                    different):</p>
-                <pre><code><span class="cli-app">wget</span> https://secure.globalsign.com/cacert/gsextendvalsha2g3r3.crt</code></pre>
-                <p>Under <code class="syntax">sudo</code>, copy the certificate into the ICAClient's keystore:</p>
-                <pre><code><span class="cli-app">cp</span> -v gsextendvalsha2g3r3.crt /opt/Citrix/ICAClient/keystore/cacerts/</code></pre>
-                <p>Then we'll need to navigate to the ICAClient's utilities folder, which contains a myriad of command line
-                    applications. We have to run <code class="syntax">ctx_rehash</code> in order make use of the certificate.</p>
-                <pre><code><span class="cli-app">cd</span> /opt/Citrix/ICAClient/util/</code></pre>
-                <pre><code><span class="cli-app">exec</span> ctx_rehash</code></pre>
-            </section>
-            <section>
-                <h2>Conclusion</h2>
-                <p>Following the final step, you should be able to connect to your remote desktop environment via the Citrix
-                    Workspace application. This should be facilitated by your designated browser which will download a
-                    <code class="syntax">.ica</code> file when you navigate to whatever page is dictated by your organization's Citrix
-                    administrator.</p>
-                <p><strong>Disclaimer:</strong> <em>I'm not an employee of Citrix or a consultant. I'm just some dude with
-                    computer hacking skills whose company IT department didn't respond when my Windows instance of the Citrix
-                    Workspace when kaput. It took me about a day and a half of piecing together crumbs of information across the
-                    internet to figure this out, along with running some sketchy shell commands (one of which uninstalled my
-                    GUI). My incentive to provide this article is so that reader may have a little more direction than I did.</em></p>
-                <p>Following the initial install, I've been able to update the Citrix Workspace app seamlessly, and only had
-                    to make a minor configuration change when I transitioned from a fibre based internet to a 5G wireless
-                    internet service.</p>
-            </section>
-        </article>
-    </main>
+    <main id="main"></main>
     <footer>
         <a href="#navbar">Back to top</a>
     </footer>
+    <script type="application/javascript" src="../../js/include/showdown.min.js"></script>
+    <script type="application/javascript" src="../../js/blog.js"></script>
+    <script>
+        showArticle('../../resources/tutorials/installing-citrix-workspace-on-ubuntu.md');
+    </script>
 </body>
 </html>
